@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\StaffController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::group([
     'as' => 'admin.',
 ], function () {
     Route::resource('clients', ClientController::class);
+    Route::resource('staffs', StaffController::class);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 });

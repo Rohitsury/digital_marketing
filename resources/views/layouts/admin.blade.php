@@ -54,7 +54,7 @@
                     <span>Clients</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.staffs.index') }}">
                     <i class="fas fa-fw fa-users-cog"></i>
                     <span>Staffs</span></a>
             </li>
