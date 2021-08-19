@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +23,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+// Admin routes
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+], function () {
+    Route::resource('clients', ClientController::class);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+});
