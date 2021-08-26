@@ -48,7 +48,9 @@
                     <div class="form-group">
                         <label for="description">Ad Description</label>
                         <textarea class="form-control" name="description"
-                            rows="3">{{ old('description', $ad->description) }}</textarea>
+                            rows="3">
+                            {{ old('description', $ad->description) }}
+                        </textarea>
 
                         @error('description')<small id="helpId"
                             class="form-text text-danger">{{ $message }}</small>@enderror

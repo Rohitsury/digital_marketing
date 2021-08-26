@@ -37,6 +37,8 @@ Route::group([
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('clients', ClientController::class);
     Route::resource('staffs', StaffController::class);
+
+
     Route::resource('ads', AdController::class);
 
 });
