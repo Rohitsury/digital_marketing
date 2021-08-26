@@ -59,7 +59,7 @@
                     <span>Staffs</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.ads.index') }}">
                     <i class="fab fa-adversal"></i>
                     <span>Ads</span></a>
             </li>

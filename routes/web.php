@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\StaffController;
@@ -33,8 +34,9 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
 ], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('clients', ClientController::class);
     Route::resource('staffs', StaffController::class);
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::resource('ads', AdController::class);
 
 });
