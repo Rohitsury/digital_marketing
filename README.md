@@ -6,7 +6,7 @@
 - Run `php artisan key:generate`
 - Run `php artisan migrate:fresh`
 - Run `php artisan serve`
-- Register 3 users for farmer, vendor & admin and change user type in users table to FARMER, VENDOR, ADMIN respectivly
+- Register 3 users for admin, staff & client and change user type in users table to ADMIN, STAFF, CLIENT respectivly
 - That's it
 
 
