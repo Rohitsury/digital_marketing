@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.staff')
 
 
 @section('content')
@@ -7,36 +7,28 @@
 
         <div class="row">
             <div class="col-12">
-                <h1> Create Ad </h1>
+                <h1> {{ $ad->client->name }} </h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <form method="POST" action="{{ route('admin.ads.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('staff.ads.update', $ad) }}" enctype="multipart/form-data">
                     @csrf
-
-                    <div class="form-group">
-                        <label for="client_id">Client</label>
-                        <select class="form-control" name="client_id" id="client_id">
-                            @foreach ($clients as $client)
-                                <option value="{{ $client->id }}">{{ $client->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    @method('PUT')
 
                     <div class="form-group">
                         <label for="title">Ad Title</label>
-                        <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId"
-                            placeholder="Some tagline">
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Some tagline"
+                            value="{{ old('title', $ad->title) }}">
                         @error('title')<small id="helpId" class="form-text text-danger">{{ $message }}</small>@enderror
                     </div>
 
                     <div class="form-group">
                         <label for="platform">Platform</label>
                         <select name="platform" class="form-control">
-                            <option value="FACEBOOK">FACEBOOK</option>
-                            <option value="INSTAGRAM">INSTAGRAM</option>
+                            <option value="FACEBOOK" @if ($ad->platform == 'FACEBOOK') selected @endif>FACEBOOK</option>
+                            <option value="INSTAGRAM" @if ($ad->platform == 'INSTAGRAM') selected @endif>INSTAGRAM</option>
                         </select>
                         @error('platform')<small id="helpId"
                             class="form-text text-danger">{{ $message }}</small>@enderror
@@ -49,9 +41,16 @@
                         @error('description')<small id="fileHelpId"
                             class="form-text text-danger">{{ $message }}</small>@enderror
                     </div>
+
+                    <img src="{{ asset('storage/' . $ad->banner) }}" class="img-thumbnail" />
+
+
                     <div class="form-group">
                         <label for="description">Ad Description</label>
-                        <textarea class="form-control" name="description" rows="3"></textarea>
+                        <textarea class="form-control" name="description"
+                            rows="3">
+                            {{ old('description', $ad->description) }}
+                        </textarea>
 
                         @error('description')<small id="helpId"
                             class="form-text text-danger">{{ $message }}</small>@enderror
@@ -59,42 +58,28 @@
 
                     <div class="form-group">
                         <label for="start_date">Start Date</label>
-                        <input type="datetime-local" class="form-control" name="start_date" id="start_date"
-                            aria-describedby="helpId" placeholder="">
+                        <input type="datetime-local" class="form-control" name="start_date" id="start_date" placeholder=""
+                            value="{{ old('start_date', date('Y-m-d\TH:i', strtotime($ad->start_date))) }}">
                         @error('start_date')<small id="helpId"
                             class="form-text text-danger">{{ $message }}</small>@enderror
                     </div>
 
                     <div class="form-group">
                         <label for="end_date">End Date</label>
-                        <input type="datetime-local" class="form-control" name="end_date" id="end_date" aria-describedby="helpId"
-                            placeholder="">
+                        <input type="datetime-local" class="form-control" name="end_date" id="end_date" placeholder=""
+                            value="{{ old('end_date', date('Y-m-d\TH:i', strtotime($ad->end_date))) }}">
                         @error('end_date')<small id="helpId"
                             class="form-text text-danger">{{ $message }}</small>@enderror
                     </div>
 
-
                     <div class="form-group">
-                        <label for="amount">Amount</label>
-                        <input type="number" class="form-control" name="amount" id="amount" aria-describedby="helpId"
-                            placeholder="Amount">
-                        @error('amount')
-                            <span class="text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <label for="status">Status</label>
+                        <select class="form-control" name="status" id="status">
+                            <option value="RUNNING" @if($ad->status == "RUNNING") selected @endif>RUNNING</option>
+                            <option value="STOPED" @if($ad->status == "STOPED") selected @endif>STOPED</option>
+                            <option value="UPCOMING" @if($ad->status == "UPCOMING") selected @endif>UPCOMING</option>
+                        </select>
                     </div>
-
-
-                    <div class="form-group">
-                      <label for="status">Status</label>
-                      <select class="form-control" name="status" id="status">
-                        <option value="RUNNING">RUNNING</option>
-                        <option value="STOPED">STOPED</option>
-                        <option value="UPCOMING">UPCOMING</option>
-                      </select>
-                    </div>
-
 
                     <button type="submit" class="btn btn-primary">Submit</button>
 

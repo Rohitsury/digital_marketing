@@ -14,7 +14,7 @@ class Ad extends Model
      *
      * @var array
      */
-    protected $fillable = ['client_id', 'title', 'description', 'banner', 'platform', 'start_date', 'end_date', 'status'];
+    protected $fillable = ['client_id', 'title', 'description', 'banner', 'platform', 'start_date', 'end_date', 'amount', 'status'];
 
     /**
      * The attributes that should be mutated to dates.

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.staff')
 
 
 @section('content')
@@ -13,7 +13,7 @@
 
         <div class="row">
             <div class="col-12">
-                <form method="POST" action="{{ route('admin.ads.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('staff.ads.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -73,7 +73,6 @@
                             class="form-text text-danger">{{ $message }}</small>@enderror
                     </div>
 
-
                     <div class="form-group">
                         <label for="amount">Amount</label>
                         <input type="number" class="form-control" name="amount" id="amount" aria-describedby="helpId"
@@ -85,7 +84,6 @@
                         @enderror
                     </div>
 
-
                     <div class="form-group">
                       <label for="status">Status</label>
                       <select class="form-control" name="status" id="status">
@@ -94,7 +92,6 @@
                         <option value="UPCOMING">UPCOMING</option>
                       </select>
                     </div>
-
 
                     <button type="submit" class="btn btn-primary">Submit</button>
 
