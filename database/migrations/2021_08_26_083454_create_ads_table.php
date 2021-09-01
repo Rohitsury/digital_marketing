@@ -22,6 +22,7 @@ class CreateAdsTable extends Migration
             $table->string('platform');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->integer('amount')->default(1);
             $table->string('status');
             $table->timestamps();
         });

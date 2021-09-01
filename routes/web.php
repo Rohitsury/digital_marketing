@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\AdController;
+use App\Http\Controllers\Admin\AdReportController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\StaffController;
+use App\Http\Controllers\Staff\AdController as StaffAdController;
+use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return redirect()->route('login');
     return view('welcome');
 });
 
@@ -40,5 +44,15 @@ Route::group([
 
 
     Route::resource('ads', AdController::class);
+    Route::resource('adreports', AdReportController::class);
 
+});
+
+Route::group([
+    'prefix'=>'staff',
+    'as'=>'staff.',
+],function () {
+    Route::get('/dashboard', [StaffDashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::resource('ads', StaffAdController::class);
 });

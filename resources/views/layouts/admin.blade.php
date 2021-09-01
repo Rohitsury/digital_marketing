@@ -20,6 +20,14 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <style>
+        .bg-navbar{
+            background-color: #eeeeee;
+            .nav-link{
+                color:white !important;
+            }
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -64,7 +72,7 @@
                     <span>Ads</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.adreports.index') }}">
                     <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Ad Reports</span></a>
             </li>
@@ -100,14 +108,14 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-
+                    {{ Config::get('app.name', ''); }}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -166,7 +174,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Digital Marketing CMS 2021</span>
                     </div>
                 </div>
             </footer>

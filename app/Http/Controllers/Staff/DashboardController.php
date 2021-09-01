@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
-use App\Models\Ad;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,7 +13,7 @@ class DashboardController extends Controller
     {
         $clients = Client::all();
         $staff = User::whereType('STAFF')->get();
-        $ads = Ad::all();
-        return view('admin.dashboard.index', compact('clients', 'staff', 'ads'));
+        $ads = 10;
+        return view('staff.dashboard.index', compact('clients', 'staff', 'ads'));
     }
 }
