@@ -1,50 +1,14 @@
-# Todo
-## Admin
-    - Dashboard
-    - Staff 
-        - List
-        - Create
-        - edit
-    - Client
-        - List
-        - Create
-        - edit
-    - Ads
-        - List
-        - Create
-        - edit
-    - Ad reports
-        - list
-        - Create
-        - view
-    - Profile
-        - Edit
-    - Log out
+# Installation
 
-## Staff
-    - Dashboard
-    - Ads
-        - List
-        - Create
-        - edit
-    - Ad reports
-        - list
-        - Create
-        - view
-    - Profile
-        - Edit
-    - Log out
-    
+- Clone the repository with `git clone`
+- Copy `.env.example` file to `.env` and edit database credentials there
+- Run `composer install`
+- Run `php artisan key:generate`
+- Run `php artisan migrate:fresh`
+- Run `php artisan serve`
+- Register 3 users for farmer, vendor & admin and change user type in users table to FARMER, VENDOR, ADMIN respectivly
+- That's it
 
-## Client
-    - Login
-    - Ads
-        - List
-        - View
-    - Ad reports
-        - List
-        - view
-    - Profile
-        - Edit
-    - Log out
-    
+
+## Troubleshooting
+- `php artisan optimize` if you feel everything is correct but still errors are there
