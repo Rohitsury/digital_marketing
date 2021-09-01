@@ -5,6 +5,9 @@ use App\Http\Controllers\Admin\AdReportController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\StaffController;
+use App\Http\Controllers\Client\AdController as ClientAdController;
+use App\Http\Controllers\Client\AdReportController as ClientAdReportController;
+use App\Http\Controllers\Client\DashboardController as ClientDashboardController;
 use App\Http\Controllers\Staff\AdController as StaffAdController;
 use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
 use Illuminate\Support\Facades\Auth;
@@ -55,4 +58,16 @@ Route::group([
     Route::get('/dashboard', [StaffDashboardController::class, 'index'])->name('dashboard.index');
 
     Route::resource('ads', StaffAdController::class);
+});
+
+
+Route::group([
+    'prefix'=>'client',
+    'as'=>'client.',
+],function () {
+    Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::resource('ads', ClientAdController::class);
+    Route::resource('adreports', ClientAdReportController::class);
+
 });
