@@ -12,3 +12,4 @@
 
 ## Troubleshooting
 - `php artisan optimize` if you feel everything is correct but still errors are there
+- `php artisan storage:link` if photos are not visible
