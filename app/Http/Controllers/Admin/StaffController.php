@@ -75,7 +75,7 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Staff $Staff)
+    public function edit(Staff $staff)
     {
         return view('admin.staffs.edit', compact('staff'));
     }
@@ -87,10 +87,10 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staff $Staff)
+    public function update(Request $request, Staff $staff)
     {
         $data = $request->all();
-        $Staff->update($data);
+        $staff->update($data);
 
         return redirect()->route('admin.staffs.index')->withSuccess('Staff updated');
     }

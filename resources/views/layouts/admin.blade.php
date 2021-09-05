@@ -76,11 +76,11 @@
                     <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Ad Reports</span></a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-user-circle"></i>
                     <span>Profile</span></a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
