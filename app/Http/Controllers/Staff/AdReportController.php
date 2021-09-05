@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ad;
 use App\Models\AdReport;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class AdReportController extends Controller
@@ -27,6 +29,10 @@ class AdReportController extends Controller
     public function create()
     {
         //
+         $ads = Ad::all();
+        $clients = Client::all();
+        return view('staff.adreports.create', compact('ads','clients'));
+
     }
 
     /**
@@ -38,6 +44,12 @@ class AdReportController extends Controller
     public function store(Request $request)
     {
         //
+         $data = $request->all();
+
+
+        AdReport::create($request->all());
+        return redirect()->route('staff.adreports.index')->withSuccess('Ad report added');
+
     }
 
     /**
