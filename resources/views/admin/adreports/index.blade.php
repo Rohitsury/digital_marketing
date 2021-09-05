@@ -5,6 +5,11 @@
 
     <div class="container">
         <h1>Ad report</h1>
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ route('staff.adreports.create') }}" class="btn btn-primary">Add new report</a>
+            </div>
+        </div>
         <div class="row my-3">
             <div class="col-12">
                 <table class="table table-light table-striped table-hover">

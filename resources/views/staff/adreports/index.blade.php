@@ -5,6 +5,11 @@
 
     <div class="container">
         <h1>Ad report</h1>
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ route('staff.adreports.create') }}" class="btn btn-primary">Add new report</a>
+            </div>
+        </div>
         <div class="row my-3">
             <div class="col-12">
                 <table class="table table-light table-striped table-hover">
@@ -24,10 +29,12 @@
                                 <td>{{ $adreport->ad->start_date->diffForHumans() }}</td>
                                 <td scope="row">{{ $adreport->client->name }}</td>
                                 <td>{{ $adreport->ad->title }}</td>
-                                <td><i class="fa fa-rupee-sign" aria-hidden="true"></i> {{ $adreport->cpc }} &nbsp; <span class="badge badge-primary">{{ $adreport->ad->status }}</span></td>
+                                <td><i class="fa fa-rupee-sign" aria-hidden="true"></i> {{ $adreport->cpc }} &nbsp; <span
+                                        class="badge badge-primary">{{ $adreport->ad->status }}</span></td>
                                 <td>{{ $adreport->clicks }}</td>
                                 <td>
-                                   <i class="fa fa-rupee-sign" aria-hidden="true"></i> {{ $adreport->cpc * $adreport->clicks }}
+                                    <i class="fa fa-rupee-sign" aria-hidden="true"></i>
+                                    {{ $adreport->cpc * $adreport->clicks }}
                                 </td>
                             </tr>
                         @endforeach
