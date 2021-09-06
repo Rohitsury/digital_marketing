@@ -41,23 +41,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware'=>['auth','admin'],
+    'middleware' => ['auth', 'admin'],
 ], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-        Route::resource('clients', ClientController::class);
-        Route::resource('staffs', StaffController::class);
+    Route::resource('clients', ClientController::class);
+    Route::resource('staffs', StaffController::class);
     Route::resource('ads', AdController::class);
     Route::resource('adreports', AdReportController::class);
-
-
-
 });
 
 Route::group([
-    'prefix'=>'staff',
-    'as'=>'staff.',
-],function () {
+    'prefix' => 'staff',
+    'as' => 'staff.',
+], function () {
     Route::get('/dashboard', [StaffDashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('ads', StaffAdController::class);
     Route::resource('adreports', StaffAdReportController::class);
@@ -65,13 +62,12 @@ Route::group([
 
 
 Route::group([
-    'prefix'=>'client',
-    'as'=>'client.',
-    'middleware'=>['auth','client'],
-],function () {
+    'prefix' => 'client',
+    'as' => 'client.',
+    'middleware' => ['auth', 'client'],
+], function () {
     Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard.index');
 
     Route::resource('ads', ClientAdController::class);
     Route::resource('adreports', ClientAdReportController::class);
-
 });
