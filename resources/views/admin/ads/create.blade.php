@@ -90,7 +90,7 @@
                       <label for="status">Status</label>
                       <select class="form-control" name="status" id="status">
                         <option value="RUNNING">RUNNING</option>
-                        <option value="STOPED">STOPED</option>
+                        <option value="STOPPED">STOPPED</option>
                         <option value="UPCOMING">UPCOMING</option>
                       </select>
                     </div>

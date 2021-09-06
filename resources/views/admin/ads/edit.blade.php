@@ -76,7 +76,7 @@
                         <label for="status">Status</label>
                         <select class="form-control" name="status" id="status">
                             <option value="RUNNING" @if($ad->status == "RUNNING") selected @endif>RUNNING</option>
-                            <option value="STOPED" @if($ad->status == "STOPED") selected @endif>STOPED</option>
+                            <option value="STOPPED" @if($ad->status == "STOPPED") selected @endif>STOPPED</option>
                             <option value="UPCOMING" @if($ad->status == "UPCOMING") selected @endif>UPCOMING</option>
                         </select>
                     </div>
