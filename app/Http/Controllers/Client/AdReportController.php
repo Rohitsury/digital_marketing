@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdReport;
+use Auth;
 use Illuminate\Http\Request;
 
 class AdReportController extends Controller
@@ -15,7 +16,7 @@ class AdReportController extends Controller
      */
     public function index()
     {
-        $adreports = AdReport::latest()->get();
+        $adreports = AdReport::where('client_id', Auth::user()->id)->latest()->get();
         return view('client.adreports.index', compact('adreports'));
     }
 
